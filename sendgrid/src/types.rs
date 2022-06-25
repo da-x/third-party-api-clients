@@ -3178,7 +3178,7 @@ pub struct ContactSummary {
     pub updated_at: f64,
 }
 
-#[derive(Serialize, Deserialize, PartialEq, Debug, Clone, JsonSchema)]
+#[derive(Serialize, Deserialize, PartialEq, Debug, Clone, JsonSchema, Default)]
 pub struct ContactRequest {
     #[serde(
         default,
@@ -3211,7 +3211,7 @@ pub struct ContactRequest {
     )]
     pub country: String,
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    pub custom_fields: Option<Help>,
+    pub custom_fields: Option<serde_json::Value>,
     /**
      * The license key provided with your New Relic account.
      */
